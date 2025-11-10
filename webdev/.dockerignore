@@ -1,0 +1,12 @@
+node_modules
+.turbo
+.git
+dist
+*.log
+.DS_Store
+apps/**/node_modules
+apps/**/.vite
+apps/**/dist
+
+
+
