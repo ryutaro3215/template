@@ -1,9 +1,16 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import { cors } from "hono/cors";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.use("/api/*", cors());
 
-export default app
+app.get("/", (c) => {
+	return c.text("Welcome to Hono!");
+});
+
+app.get("/api/test", (c) => {
+	return c.json({ message: "This is API test!!" });
+});
+
+export default app;

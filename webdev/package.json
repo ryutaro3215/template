@@ -1,15 +1,20 @@
 {
-  "name": "webdev",
-  "module": "index.ts",
-  "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
-  "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  }
+	"name": "webdev",
+	"module": "index.ts",
+	"type": "module",
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"check": "biome check . --max-diagnostics=none --error-on-warnings",
+		"check:fix": "biome check . --fix --max-diagnostics=none --error-on-warnings"
+	},
+	"private": true,
+	"devDependencies": {
+		"@biomejs/biome": "2.3.4",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
 }

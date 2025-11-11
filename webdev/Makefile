@@ -11,3 +11,24 @@ setup:
 	  echo "シンボリックリンク作成: $$dir/.env -> ../../.env"; \
 	  ln -s ../../.env $$dir/.env; \
 	done
+
+dev:
+	bun run --filter "*" dev
+
+build:
+	docker-compose build
+
+start:
+	docker-compose up -d
+
+stop:
+	docker-compose down
+
+img:
+	docker image ls
+
+rimg:
+	docker image rm $$(docker images -a -q)
+
+cnt:
+	docker container ls 

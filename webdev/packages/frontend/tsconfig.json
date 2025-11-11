@@ -1,7 +1,21 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+	// "files": [],
+	// "references": [
+	//   { "path": "./tsconfig.app.json" },
+	//   { "path": "./tsconfig.node.json" }
+	// ],
+	"compilerOptions": {
+		"target": "ES2021",
+		"module": "ESNext",
+		"lib": ["ES2021", "DOM"],
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true,
+		"jsx": "react-jsx",
+		"strict": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }
