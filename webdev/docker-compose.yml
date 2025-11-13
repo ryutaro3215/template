@@ -9,6 +9,8 @@ services:
     depends_on:
       - backend
     restart: unless-stopped
+    networks:
+      - web-network
   backend:
     container_name: backend 
     build:
@@ -16,4 +18,19 @@ services:
       dockerfile: packages/backend/Dockerfile
     ports:
       - "3000:3000"
+    env_file:
+      - ./packages/backend/.env
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
     restart: unless-stopped
+    networks:
+      - web-network
+      - supabase-network
+
+networks:
+  web-network:
+    driver: bridge
+  supabase-network:
+    external: true
+    name: supabase_network_db
